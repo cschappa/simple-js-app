@@ -1,2 +1,5 @@
 # simple-js-app
-CF WebDev achievement 1 project. Use JS to get data from an API, display it, search it.
+[CareerFoundry](https://careerfoundry.com/) WebDev Achievement 1 project.
+## Objective
+To build a small web application with HTML, CSS, and JavaScript that loads
+data from an external API and enables the viewing of data points in detail.
