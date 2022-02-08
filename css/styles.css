@@ -1,0 +1,21 @@
+:root {
+  /* color vars */
+  --primary-color: #4b4b4;
+
+  /* text weight vars */
+  --text-normal: 400;
+  --text-bold: 700;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: var(--text-normal);
+  font-size: 16px; /* Sets the font size to 16px */
+  line-height: 1.6; /* Sets the line-height to 1.6 */
+}
+
+#myStuff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
