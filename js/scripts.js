@@ -23,19 +23,17 @@ let pokemonList = [
 
 
 // iterate throug the list of pokemon
-//   print there name and height
+//   print their name and height in the HTLM div with ID myStuff
 //   look for big ones (> 1.5 m)
 
 const myStuff = document.getElementById("myStuff");
 
-for (let i = 0; i < pokemonList.length; i++) {
-
-    // openning <p> tag w/ name and height
-    myStuff.innerHTML += `<p> ${pokemonList[i].name} height: ${pokemonList[i].height}`;
+pokemonList.forEach(pokemon => {
+    myStuff.innerHTML += `<p> ${pokemon.name} height: ${pokemon.height}`;
 
     // check for pokemons above 1.5 meters
-    if (pokemonList[i].height > 1.5) {
+    if (pokemon.height > 1.5) {
         // Over size... add some text to the end of the last element (before the closing tag)
         myStuff.lastChild.insertAdjacentText("beforeend", ' - Wow! That\'s big!');
     }
-}
+});
