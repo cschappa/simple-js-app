@@ -1,25 +1,41 @@
-let pokemonList = [
-    {
-        name: 'Flareon',
-        height: 0.9,
-        types: ['fire']
-    },
-    {
-        name: 'Ivysaur',
-        height: 1,
-        types: ['grass', 'poison']
-    },
-    {
-        name: 'Dewgong',
-        height: 1.7,
-        types: ['ice', 'water']
-    },
-    {
-        name: 'Heracross',
-        height: 1.5,
-        types: ['bug', 'fighting']
+let pokemonRepository = (function () {
+    let pokemonList = [
+        {
+            name: 'Flareon',
+            height: 0.9,
+            types: ['fire']
+        },
+        {
+            name: 'Ivysaur',
+            height: 1,
+            types: ['grass', 'poison']
+        },
+        {
+            name: 'Dewgong',
+            height: 1.7,
+            types: ['ice', 'water']
+        },
+        {
+            name: 'Heracross',
+            height: 1.5,
+            types: ['bug', 'fighting']
+        }
+    ];
+
+    function getAll() {
+        return pokemonList;
     }
-];
+
+    function add(item) {
+        pokemonList.push(item);
+    }
+
+    return {
+        getAll: getAll,
+        add: add,
+    }
+})();
+
 
 
 // iterate throug the list of pokemon
@@ -27,6 +43,8 @@ let pokemonList = [
 //   look for big ones (> 1.5 m)
 
 const myStuff = document.getElementById("myStuff");
+
+pokemonList = pokemonRepository.getAll();
 
 pokemonList.forEach(pokemon => {
     myStuff.innerHTML += `<p> ${pokemon.name} height: ${pokemon.height}`;
