@@ -54,9 +54,21 @@ let pokemonRepository = (function () {
         }
     }
 
+    function findByName(name) {
+        return pokemonList.filter(function(pokeman) {
+            if (pokeman.name == name) {
+                console.log('found one')
+                return true;
+            }
+        });
+    }
+
+    // return pokemon[i] if pokemon[i].name == name
+
     return {
         getAll: getAll,
         add: add,
+        findByName: findByName,
     }
 })();
 
