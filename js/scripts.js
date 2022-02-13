@@ -26,8 +26,32 @@ let pokemonRepository = (function () {
         return pokemonList;
     }
 
+    function isValidKey(key) {
+        if ( (key == 'name') || (key == 'height') || (key == 'types')) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function add(item) {
-        pokemonList.push(item);
+        // check that input is object and contains the correct keys
+        let validKeys = true;
+        if ( typeof(item) === 'object') {
+            Object.keys(item).forEach(function(key) {
+                if ( !isValidKey(key) ) {
+                    validKeys = false;
+                    console.log('error: ' + key + ' is not a key, can only add pokeman objects');
+                } 
+            });
+            if (validKeys) {
+                // add pokemon to the list
+                pokemonList.push(item);
+            }
+        } else {
+            // not an object
+            console.log('error: can only add pokeman objects');
+        }
     }
 
     return {
