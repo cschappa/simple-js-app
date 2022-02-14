@@ -62,6 +62,9 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.innerText = pokemon.name;
 
+        // add event handler
+        button.addEventListener('click',  function () {showDetails(pokemon);} );
+
         // style the button
         button.classList.add('primary-button');
 
@@ -74,7 +77,7 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-
+        console.log(pokemon);
     }
 
     function findByName(name) {
