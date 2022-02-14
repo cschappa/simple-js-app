@@ -1,3 +1,4 @@
+// Pokemon IIFE
 let pokemonRepository = (function () {
     let pokemonList = [
         {
@@ -22,10 +23,12 @@ let pokemonRepository = (function () {
         }
     ];
 
+    // returns all pokemon from the Repository
     function getAll() {
         return pokemonList;
     }
 
+    // check that a pokemon object contains the proper keys
     function isValidKey(key) {
         if ( (key == 'name') || (key == 'height') || (key == 'types')) {
             return true;
@@ -34,6 +37,7 @@ let pokemonRepository = (function () {
         }
     }
 
+    // adds a pokemon object to the repository
     function add(item) {
         // check that input is object and contains the correct keys
         let validKeys = true;
@@ -54,6 +58,7 @@ let pokemonRepository = (function () {
         }
     }
 
+    // add LI and Button to the HTML
     function addListItem(pokemon) {
         // create a LI
         let listItem = document.createElement('li');
@@ -75,26 +80,28 @@ let pokemonRepository = (function () {
         addEventListenerToButton(button, pokemon);
     }
 
+    // add event listner to a pokemon button
     function addEventListenerToButton(button, pokemon) {
         // add event handler
-        button.addEventListener('click',  function () {showDetails(pokemon);} );        
+        button.addEventListener('click',  function () {showDetails(pokemon);} );
     }
 
+    // display details about a pokemon object
     function showDetails(pokemon) {
         console.log(pokemon);
     }
 
+    // check pokemon repository for a pokemon with name
     function findByName(name) {
-        return pokemonList.filter(function(pokeman) {
-            if (pokeman.name == name) {
+        return pokemonList.filter(function(pokemon) {
+            if (pokemon.name == name) {
                 console.log('found one');
                 return true;
             }
         });
     }
 
-    // return pokemon[i] if pokemon[i].name == name
-
+    // methods available from the pokemon repository
     return {
         getAll: getAll,
         add: add,
@@ -105,9 +112,8 @@ let pokemonRepository = (function () {
 
 
 
-// iterate throug the list of pokemon
-//   print their name and height in the HTLM div with ID myStuff
-//   look for big ones (> 1.5 m)
+// iterate throug the list of pokemon in the repository
+//   Add button's with the pokemon's name to the HTML
 
 const myStuff = document.getElementById("myStuff");
 let pokemonItems = document.querySelector('.pokemon-list');
