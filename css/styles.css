@@ -21,5 +21,15 @@ body {
 }
 
 .primary-button {
-  
+  border-width: 3px;
+  border-color: blue;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+}
+
+ul.pokemon-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
