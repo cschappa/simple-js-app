@@ -54,6 +54,29 @@ let pokemonRepository = (function () {
         }
     }
 
+    function addListItem(pokemon) {
+        // create a LI
+        let listItem = document.createElement('li');
+
+        // create a button with the pokemon's name
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+
+        // style the button
+        button.classList.add('primary-button');
+
+        // add the button to the list item
+        listItem.appendChild(button);
+
+        // add the list item to the unordered list in index.html
+        pokemonItems.appendChild(listItem);
+
+    }
+
+    function showDetails(pokemon) {
+
+    }
+
     function findByName(name) {
         return pokemonList.filter(function(pokeman) {
             if (pokeman.name == name) {
@@ -69,6 +92,7 @@ let pokemonRepository = (function () {
         getAll: getAll,
         add: add,
         findByName: findByName,
+        addListItem: addListItem,
     }
 })();
 
@@ -79,15 +103,10 @@ let pokemonRepository = (function () {
 //   look for big ones (> 1.5 m)
 
 const myStuff = document.getElementById("myStuff");
-
-pokemonList = pokemonRepository.getAll();
+let pokemonItems = document.querySelector('.pokemon-list');
+let pokemonList = pokemonRepository.getAll();
 
 pokemonList.forEach(pokemon => {
-    myStuff.innerHTML += `<p> ${pokemon.name} height: ${pokemon.height}`;
-
-    // check for pokemons above 1.5 meters
-    if (pokemon.height > 1.5) {
-        // Over size... add some text to the end of the last element (before the closing tag)
-        myStuff.lastChild.insertAdjacentText("beforeend", ' - Wow! That\'s big!');
-    }
+    // Add a pokemon button LI to the html page
+    pokemonRepository.addListItem(pokemon);
 });
