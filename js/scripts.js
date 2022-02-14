@@ -62,9 +62,6 @@ let pokemonRepository = (function () {
         let button = document.createElement('button');
         button.innerText = pokemon.name;
 
-        // add event handler
-        button.addEventListener('click',  function () {showDetails(pokemon);} );
-
         // style the button
         button.classList.add('primary-button');
 
@@ -74,6 +71,13 @@ let pokemonRepository = (function () {
         // add the list item to the unordered list in index.html
         pokemonItems.appendChild(listItem);
 
+        // add event handler to the button
+        addEventListenerToButton(button, pokemon);
+    }
+
+    function addEventListenerToButton(button, pokemon) {
+        // add event handler
+        button.addEventListener('click',  function () {showDetails(pokemon);} );        
     }
 
     function showDetails(pokemon) {
