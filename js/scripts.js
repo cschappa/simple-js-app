@@ -42,7 +42,7 @@ let pokemonRepository = (function () {
                 if ( !isValidKey(key) ) {
                     validKeys = false;
                     console.log('error: ' + key + ' is not a key, can only add pokeman objects');
-                } 
+                }
             });
             if (validKeys) {
                 // add pokemon to the list
@@ -57,7 +57,7 @@ let pokemonRepository = (function () {
     function findByName(name) {
         return pokemonList.filter(function(pokeman) {
             if (pokeman.name == name) {
-                console.log('found one')
+                console.log('found one');
                 return true;
             }
         });
